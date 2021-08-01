@@ -45,7 +45,7 @@ main {
 .nav__item {
     position: relative;
     float: left;
-    padding: 25px 20px;
+    padding: 25px 15px;
 }
 .nav__item-link {
     font-size: 1.4rem;
@@ -54,6 +54,61 @@ main {
     color: var(--white-color);
     text-transform: uppercase;
     line-height: 1.4rem;
+}
+
+/* NAV-MOBILE */
+.nav-mobile{
+    height: 100vh;
+    position: absolute;
+    width: 300px;
+    background-color: rgb(85, 85, 85);
+    right: 0;
+    top: 0;
+    padding: 30px 40px 40px 40px;
+    z-index: 999;
+    overflow: scroll;
+    display: none;
+    /* transform: translateX(calc(100% + 100px)); */
+    transition: all 0.3s;
+}
+
+.nav-mobile-exit {
+    font-size: 2.4rem;
+    float: right;
+    cursor: pointer;
+}
+
+.nav-mobile.active{
+    position: fixed;
+    max-height: 100vh;
+    display: flex;
+}
+.nav-mobile__list{
+    list-style-type: none;
+}
+.nav-mobile__list-item{
+    margin-bottom: 30px;
+}
+.nav-mobile__list-item-heading{
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    font-size: 2.4rem;
+    line-height: 3.5rem;
+    font-weight: bold;
+}
+.nav-mobile__list-detail{
+    padding-left: 20px;
+    list-style-type: none;
+    text-transform: uppercase;
+}
+.nav-mobile__list-detail-item a{
+    font-size: 1.4rem;
+    line-height: 3.5rem;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
 }
 
 /* NAV SUB MENU */
@@ -130,7 +185,6 @@ main {
 /* SIDEBAR */
 .sub-nav{
     text-align: center;
-    width: 190px;
 }
 
 .sub-nav__exit {
@@ -145,11 +199,9 @@ main {
 }
 .sub-nav__icon i{
     cursor: pointer;
-    position: absolute;
     font-size: 3.2rem;
     color: #999999;
-    top: 35px;
-    right: 175px;
+    margin-right: 30px;
 }
 .sub-nav__contain {
     width: 340px;
@@ -158,15 +210,15 @@ main {
     top: 0;
     background-color: var(--white-color);
     padding: 20px 5px 15px 35px;
-    transition: transform 0.3s;
+    transition: all ease-in 0.3s;
     overflow: scroll;
-    /* display: none; */
-    transform: translateX(calc(100%));
+    display: none;
+    /* transform: translateX(calc(100%)); */
 }
 
 .sub-nav__contain.active{
     position: fixed;
-    transform: translateX(calc(0%));
+    display: block;
     max-height: 100vh;
     z-index: 2;
 }
@@ -284,6 +336,7 @@ main {
     text-align: center;
     padding: 30px;
     animation: fadeIn ease-in 0.8s;
+    vertical-align: middle;
 }
 .sub-nav__sidebar-header{
     color: var(--white-color);
@@ -317,7 +370,7 @@ main {
 }
 
 .sub-nav__europe-package:hover .sub-nav__sidebar {
-    display: block;
+    display: table-cell;
 }
 
 /* CONTENT */
@@ -325,7 +378,7 @@ main {
 .container {
     top: 0;
     position: absolute;
-    width: 1349px;
+    width: 100%;
     display: flex;
     background-position: center;
     background-repeat: no-repeat !important;
@@ -334,8 +387,14 @@ main {
     overflow: hidden;
 }
 
-.search-section_position_relative {
+.search-section {
+    width: 100%;
     position: relative;
+    padding: 270px 74.5px 200px 74.5px;
+    background-image: url(../imgs/search-section-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .search-section-bg{
@@ -344,9 +403,6 @@ main {
 }   
 .search-section__content{
     text-align: center;
-    position: absolute;
-    width: 100%;
-    top: 270px;
 }
 .search-section-heading{
     color: var(--white-color);
@@ -365,7 +421,7 @@ main {
     font-weight: normal;
 }
 .search-section-btn{
-    width: 23%;
+    width: 100%;
     color: #a3abc0;
     -webkit-appearance: none;
     border-radius: 30px;
@@ -373,38 +429,48 @@ main {
     border-width: 1px;
     border-color: transparent;
     font-size: 1.6rem;
+    cursor: pointer;
 }
-.search-section-btn-icon a{
-    font-size: 2.0rem;
+
+.search-section_position_relative{
+    position: relative;
+}
+
+.search-section-btn-icon{
     position: absolute;
-    right: 40%;
-    top: 20%;
-    color:#a3abc0;
-    font-weight: 100;
-    text-decoration: none;
+    top: 0;
+    right: 10px;
 }
-.search-section__travel-content{
-    width: 75%;
-    margin-left: 30%;
+
+.search-section-btn-icon input{
+    cursor: pointer;
+    border: none;
+    background-image: url(../imgs/search-btn.png);
+    background-size: 18px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 47px;
+    height: 47px;
 }
-.search-section__travel-content-list{
-    list-style-type: none;
-}
+
 .search-section__travel-content-item{
-    float: left;
     color: #a3a3a3;
     font-size: 1.4rem;
     line-height: 2.7;
     font-family: 'Open Sans', sans-serif;
-    overflow-x: hidden;
+    text-align: center;
+    width: 25%;
+    float: left;
+    padding: 15px;
+}
+
+.search-section__travel-content-contain {
     padding: 20px;
     background: rgba(0,0,0,0.21);
-    margin: 15px;
-    width: 10%;
-}
+} 
 .search-section__travel-content-logo img{
     width: 40px;
-
 }
 .search-section__travel-content-name{
     color: var(--white-color);
@@ -415,6 +481,7 @@ main {
     font-size: 1.1rem;
     line-height: 1.1rem;
     font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
 }
 
 /* Destination */
@@ -516,9 +583,6 @@ main {
     font-weight: normal;
 }
 
-.north-usa-title{
-    margin-top: 55px;
-}
 .north-usa-title__name{
     color: #9a9a9a;
     letter-spacing: 2px;
@@ -596,13 +660,22 @@ main {
     line-height: 1.4rem;
     text-decoration: none;
 }
+
+.img-slider__contain{
+    padding: 20px 15px 20px 35px;
+    width: 100%;
+}
+
+.img-slider-bg__contain{
+    height: 398px;
+    background: transparent;
+}
 .img-slider{
     position: relative;
-    margin-top: 55px;
-    background-image: url(../imgs/third-click.jpg);
+    background-image: url(../imgs/beaches.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: cover cover;
+    background-position: cover;
     width: 100%;
     height: 100%;
     /* opacity: 1; */
@@ -638,14 +711,14 @@ main {
 }
 
 .slider__countdown{
+    position: relative;
+    margin-top: -60px !important;
     width: 70%;
     float: left;
     text-align: center;
     background-color: #14b9d5;
-    position: absolute;
-    bottom: -12%;
-    /* z-index: 21; */
-    left: 15%;
+    z-index: 21;
+    margin-left: 15%;
 }
 .slider__countdown-time {
     position: relative;
@@ -913,8 +986,20 @@ main {
     font-weight: bold;
     letter-spacing: 0;
 }
-.form__submit input{
-    padding: 14px 40px;
+
+.input-contain{
+    float: left;
+    width: 75%;
+    padding: 0 20px 0 0;
+}
+
+.btn-contain {
+    float: left;
+    width: 25%;
+}
+.input-contain input{
+    width: 100%;
+    padding: 14px 20px;
     border-radius: 35px;
     border-width: 0px;
     margin-right: 20px;
@@ -924,8 +1009,11 @@ main {
     color: #fff;
     text-decoration: none;
     background-color: #14b9d5;
-    padding: 10px 25px;
+    padding: 14px 25px;
     letter-spacing: 1px;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    border: none;
 }
 
 .footer__infor{

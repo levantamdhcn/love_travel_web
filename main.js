@@ -9,17 +9,34 @@ const exitSubmenu = document.querySelector('.sub-nav__exit')
 const subNavContain = document.querySelector('.sub-nav__contain')
 const sliderElement = document.querySelectorAll('.slider__element')
 const slider = document.querySelector('.img-slider')
+const header = document.querySelector('.header')
+const navMobile = document.querySelector('.nav-mobile')
+const navMobileExit = document.querySelector('.nav-mobile-exit i')
 
 const sliderBackground = ['./assets/imgs/beaches.jpg','./assets/imgs/first-click.jpg','./assets/imgs/third-click.jpg']
 
+
+console.log(document.body.scrollWidth)
 // ẩn, hiện sub menu
-activeSubmenu.onclick = function() {
-    subNavContain.classList.add('active')
-} 
+console.log(navMobileExit)
+if (document.body.scrollWidth <= 1199) {
+    activeSubmenu.onclick = function() {
+        navMobile.classList.add('active')
+    }
+}
+else (
+    activeSubmenu.onclick = function() {
+        subNavContain.classList.add('active')
+    }
+)
+navMobileExit.onclick = function() {
+    navMobile.classList.remove('active')
+}
 
 exitSubmenu.onclick = function() {
     subNavContain.classList.remove('active')
 }
+
 
 //Slider ảnh
 Array.from(sliderElement).forEach((element,index) => {
@@ -34,6 +51,7 @@ Array.from(sliderElement).forEach((element,index) => {
 
     });
   });
+
 
 
 

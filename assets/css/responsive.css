@@ -1,0 +1,64 @@
+@media (min-width: 740px) and (max-width: 1199px) {
+    .footer__contain{
+        margin: 0 131px;
+    }
+}
+
+/* MOBILE && TABLET HEADER*/
+@media (max-width: 1199px) {
+    .header {
+        background-color: rgb(85, 85, 85) !important;
+    }
+    .nav {
+        display: none;
+    }
+    .header__logo{
+        text-align: center;
+        display: block;
+        width: 100%;
+    }
+    .sub-nav__icon {
+        text-align: center;
+        width: 100%;
+        margin-top: 0px !important;
+    }
+    .sub-nav__icon i {
+        margin: 0px;
+    }
+    .search-section__travel-content-item{
+        width: 100%;
+    }
+    .display-none-on-mobile{
+        display: none;
+    }
+    .full-width-on-tablet{
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
+    }
+    .footer__contain{
+        padding: 0 131px;
+    }
+    .copyright{
+        text-align: center;
+    }
+}
+
+/* ON MOBILE */
+@media (max-width: 739px) {
+    .full-width-on-mobile{
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
+    }
+    .mr-left-30 {
+        margin-left: 30px;
+    }
+    .input-contain{
+        width: 100%;
+    }
+    .btn-contain{
+        width: 97%;
+    }
+    .form__btn {
+        width: 100%;
+    }
+}
