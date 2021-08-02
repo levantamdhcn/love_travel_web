@@ -12,14 +12,13 @@ const slider = document.querySelector('.img-slider')
 const header = document.querySelector('.header')
 const navMobile = document.querySelector('.nav-mobile')
 const navMobileExit = document.querySelector('.nav-mobile-exit i')
+let scrollWidth = document.body.scrollWidth
 
 const sliderBackground = ['./assets/imgs/beaches.jpg','./assets/imgs/first-click.jpg','./assets/imgs/third-click.jpg']
 
 
-console.log(document.body.scrollWidth)
 // ẩn, hiện sub menu
-console.log(navMobileExit)
-if (document.body.scrollWidth <= 1199) {
+if (scrollWidth <= 1199) {
     activeSubmenu.onclick = function() {
         navMobile.classList.add('active')
     }
@@ -29,6 +28,16 @@ else (
         subNavContain.classList.add('active')
     }
 )
+
+activeSubmenu.onclick = function() {
+    let scrollWidth = document.body.scrollWidth
+    if (scrollWidth <= 1199) {
+        navMobile.classList.add('active')
+    }
+    else (
+        subNavContain.classList.add('active')
+    )
+}
 navMobileExit.onclick = function() {
     navMobile.classList.remove('active')
 }
@@ -48,7 +57,6 @@ Array.from(sliderElement).forEach((element,index) => {
         })
       element.classList.add('active')
       slider.style.backgroundImage = `url('${sliderBackground[index]}')`;
-
     });
   });
 
